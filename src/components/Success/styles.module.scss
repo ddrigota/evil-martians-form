@@ -1,0 +1,50 @@
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+
+  &__heading {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__linksContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-size: 1.5rem;
+    min-width: 120px;
+    padding: 10px;
+    border: none;
+    background: var(--accent);
+    color: var(--button-text);
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+    &:focus-visible {
+      outline: 2px solid var(--focus-color);
+      outline-offset: 2px;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:hover {
+      background: oklch(from var(--accent) calc(l + 0.05) c h / 0.8);
+    }
+  }
+}

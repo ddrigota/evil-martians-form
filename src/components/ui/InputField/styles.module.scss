@@ -1,0 +1,40 @@
+.input_container {
+  width: 100%;
+}
+
+.input {
+  font-size: 2rem;
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: var(--input-bg);
+  font-family: inherit;
+
+  &:focus {
+    outline: 2px solid var(--focus-color);
+    border-color: transparent;
+  }
+
+  &__icon_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 10px;
+    width: 20px;
+  }
+
+  &__error {
+    margin-block-start: 1rem;
+    font-size: 1.3rem;
+    color: oklch(from var(--accent) l c 15);
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,36 @@
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &__title {
+    font-size: 3rem;
+    margin-block-end: 20px;
+  }
+
+  &__description {
+    font-size: 1.5rem;
+    margin-block-end: 20px;
+  }
+}
+
+.form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-block-start: 20px;
+  gap: 20px;
+}
+
+.button {
+  &__type {
+    &_login {
+      margin-block-start: 1rem;
+      color: var(--button-text);
+    }
+  }
+}

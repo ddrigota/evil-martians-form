@@ -1,0 +1,50 @@
+$button-padding: 10px;
+$button-padding-icon: 8px;
+$font-size-desktop: 2rem;
+$font-size-mobile: 1.5rem;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  font-size: $font-size-desktop;
+  width: 100%;
+  padding: $button-padding;
+  border: none;
+  background: var(--accent);
+
+  &_type_icon {
+    background: transparent;
+    padding: $button-padding-icon;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    background: oklch(from var(--accent) calc(l + 0.05) c h / 0.8);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: var(--disabled);
+    transform: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: $font-size-mobile;
+  }
+}
