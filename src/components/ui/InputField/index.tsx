@@ -1,5 +1,7 @@
-import { FC } from "react";
+import { Eye, EyeOff } from "lucide-react";
+import { FC, useState } from "react"; // Import useState
 import { UseFormRegister } from "react-hook-form";
+import Button from "../Button";
 import styles from "./styles.module.scss";
 
 interface InputFieldProps {
@@ -19,8 +21,13 @@ const InputField: FC<InputFieldProps> = ({
   placeholder,
   errors,
 }) => {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const error = errors[name];
   const isError = Boolean(error);
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
 
   return (
     <div className={styles.input_container}>
@@ -34,13 +41,24 @@ const InputField: FC<InputFieldProps> = ({
         <input
           {...register(name)}
           className={styles.input}
-          type={type}
+          type={type === "password" && !isPasswordVisible ? "password" : "text"}
           name={name}
           placeholder={placeholder}
           id={name}
           aria-invalid={isError}
           autoComplete={type}
         />
+        {type === "password" && (
+          <Button
+            type="button"
+            variant="icon"
+            className={styles.input__visibilityButton}
+            onClick={togglePasswordVisibility}
+            aria-label={isPasswordVisible ? "Hide Password" : "Show Password"}
+            aria-pressed={isPasswordVisible}>
+            {isPasswordVisible ? <Eye /> : <EyeOff />}
+          </Button>
+        )}
       </div>
       {isError && (
         <p

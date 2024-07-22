@@ -34,6 +34,24 @@
     color: oklch(from var(--accent) l c 15);
   }
 
+  &__visibilityButton {
+    position: absolute;
+    right: 10px;
+    transform: none;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    cursor: pointer;
+    @media screen and (max-width: 768px) {
+      width: 25px;
+      height: 25px;
+    }
+    &:hover {
+      background: none;
+      opacity: 0.8;
+    }
+  }
+
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;
   }
