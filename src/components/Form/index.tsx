@@ -80,6 +80,7 @@ const Form = ({ title, subtitle }: IFormProps) => {
           type="password"
           placeholder="Password"
           errors={errors}
+          autoComplete="current-password"
         />
         <Button
           disabled={!isValid || isSubmitting}

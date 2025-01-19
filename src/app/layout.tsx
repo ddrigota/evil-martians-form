@@ -1,6 +1,6 @@
-import Footer from "@/components/Footer";
+import Footer from "@/components/Layout/Footer";
 import FormContainer from "@/components/FormContainer";
-import Header from "@/components/Header";
+import Header from "@/components/Layout/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import type { Metadata, Viewport } from "next";
 import { Roboto_Flex } from "next/font/google";

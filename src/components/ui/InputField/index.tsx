@@ -10,6 +10,7 @@ interface InputFieldProps {
   name: string;
   type: string;
   placeholder: string;
+  autoComplete?: string;
   errors: any;
 }
 
@@ -19,6 +20,7 @@ const InputField: FC<InputFieldProps> = ({
   name,
   type,
   placeholder,
+  autoComplete,
   errors,
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -46,7 +48,7 @@ const InputField: FC<InputFieldProps> = ({
           placeholder={placeholder}
           id={name}
           aria-invalid={isError}
-          autoComplete={type}
+          autoComplete={autoComplete}
         />
         {type === "password" && (
           <Button

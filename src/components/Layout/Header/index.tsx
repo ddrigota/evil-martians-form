@@ -1,6 +1,6 @@
 "use client";
 
-import ThemePicker from "../ThemePicker";
+import ThemePicker from "@/components/ui/ThemePicker";
 import styles from "./styles.module.scss";
 
 const Header = () => {
