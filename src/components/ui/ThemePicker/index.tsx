@@ -85,6 +85,12 @@ export function ThemePicker({ className }: ThemePickerProps) {
     };
   }, []);
 
+  const themeOptions = useMemo(() => [
+    { value: 'light' as const, label: 'Light', icon: <Sun /> },
+    { value: 'dark' as const, label: 'Dark', icon: <Moon /> },
+    { value: 'system' as const, label: 'System', icon: <Monitor /> }
+  ], []);
+
   useEffect(() => {
     if (isOpen) {
       setWasOpen(true);
@@ -100,7 +106,7 @@ export function ThemePicker({ className }: ThemePickerProps) {
     } else if (!isOpen && wasOpen) {
       toggleButtonRef.current?.focus();
     }
-  }, [isOpen, theme, wasOpen]);
+  }, [isOpen, theme, wasOpen, themeOptions]);
 
   useEffect(() => {
     if (announcement) {
@@ -121,7 +127,7 @@ export function ThemePicker({ className }: ThemePickerProps) {
 
     const themeName = themeOptions.find(option => option.value === newTheme)?.label || newTheme;
     setAnnouncement(`Theme changed to ${themeName}`);
-  }, [setTheme]);
+  }, [setTheme, themeOptions]);
 
   const handleDropdownKeyDown = (e: ReactKeyboardEvent<HTMLButtonElement>) => {
     if (!isOpen) {
@@ -179,11 +185,7 @@ export function ThemePicker({ className }: ThemePickerProps) {
     }
   };
 
-  const themeOptions = useMemo(() => [
-    { value: 'light' as const, label: 'Light', icon: <Sun /> },
-    { value: 'dark' as const, label: 'Dark', icon: <Moon /> },
-    { value: 'system' as const, label: 'System', icon: <Monitor /> }
-  ], []);
+
 
   return (
     <div className={`${styles.theme_picker} ${className}`} ref={dropdownRef}>
