@@ -8,17 +8,32 @@ $font-size-mobile: 1.5rem;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.2s;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
   font-size: $font-size-desktop;
   width: 100%;
   padding: $button-padding;
   border: none;
-  background: var(--accent);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 500;
+  box-shadow: none;
+  position: relative;
 
   &_type_icon {
     background: transparent;
     padding: $button-padding-icon;
+    color: var(--foreground);
+    width: auto;
+    border-radius: var(--radius);
+
+    &:hover {
+      background: var(--hover);
+    }
+
+    &:active {
+      background: var(--secondary);
+    }
   }
 
   &:focus {
@@ -26,22 +41,26 @@ $font-size-mobile: 1.5rem;
   }
 
   &:focus-visible {
-    outline: 2px solid var(--focus-color);
+    outline: 2px solid var(--focus);
     outline-offset: 2px;
   }
 
   &:hover {
-    background: oklch(from var(--accent) calc(l + 0.05) c h / 0.8);
+    background: var(--foreground);
+    box-shadow: 0 2px 4px oklch(0 0 0 / 0.1);
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: translateY(1px);
+    box-shadow: none;
   }
 
   &:disabled {
     cursor: not-allowed;
     background: var(--disabled);
+    color: var(--disabled-foreground);
     transform: none;
+    box-shadow: none;
   }
 
   @media screen and (max-width: 768px) {

@@ -6,9 +6,9 @@
   font-size: 2rem;
   width: 100%;
   padding: 10px;
-  border: 1px solid currentColor;
+  border: 1px solid var(--border);
   border-radius: 5px;
-  background-color: var(--input-bg);
+  background-color: var(--input);
   font-family: inherit;
 
   &__label {
@@ -42,18 +42,34 @@
     height: 30px;
     padding: 2px;
     cursor: pointer;
+    color: var(--muted-foreground);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
     @media screen and (max-width: 768px) {
       width: 25px;
       height: 25px;
     }
+
     &:hover {
-      background: none;
-      opacity: 0.8;
+      background: var(--hover);
+      color: var(--foreground);
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+      color: var(--foreground);
+    }
+
+    &:active {
+      transform: scale(0.95);
     }
   }
 
   &:focus {
-    outline: 2px solid var(--focus-color);
+    outline: 2px solid var(--focus);
     border-color: transparent;
   }
 

@@ -35,7 +35,7 @@ function Success() {
           Go back
         </Link>
         <Link
-          href="https://github.com/ddrigota/evil-form"
+          href="https://github.com/ddrigota/evil-martians-form"
           target="_blank"
           role="button"
           className={styles.success__link}
