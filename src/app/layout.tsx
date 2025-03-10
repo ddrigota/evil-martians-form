@@ -36,7 +36,7 @@ export default function RootLayout({
           attribute="data-theme"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange>
+          >
           <Header />
           <main className={styles.main}>
             <FormContainer>{children}</FormContainer>

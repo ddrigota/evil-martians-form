@@ -1,7 +1,7 @@
 "use client";
 
 import Form from "@/components/Form";
-import MyMessage from "@/components/Layout/MyMesage";
+import MyMessage from "@/components/Layout/MyMessage";
 
 export default function Home() {
   return (
