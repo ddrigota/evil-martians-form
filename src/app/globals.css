@@ -1,27 +1,29 @@
 :root {
-  --background: oklch(98.51% 0 0);
-  --foreground: oklch(0% 0 0);
-  --accent: oklch(49.55% 0.237 301.92);
-  --focus-color: oklch(75.76% 0.159 55.93);
-  --card-bg: oklch(96.74% 0.001 286.38);
-  --message-bg: oklch(91.97% 0.004 286.32);
-  --shadow: oklch(50.71% 0.017 285.77 / 20%) 0px 7px 29px 0px;
-  --input-bg: oklch(98.51% 0 0);
+  --background: oklch(98% 0 0);
+  --foreground: oklch(0 0 0);
+  --accent: oklch(50% 0.2 30);
+  --focus-color: oklch(75% 0.15 55);
+  --card-bg: oklch(96% 0 286);
+  --message-bg: oklch(91% 0 286);
+  --shadow: oklch(50% 0 285);
+  --input-bg: oklch(98% 0 0);
   --button-text: oklch(100% 0 0);
-  --disabled: oklch(91.97% 0.004 286.32);
+  --disabled: oklch(91% 0 286);
+  --error: oklch(from var(--accent) l c 15);
 }
 
 [data-theme="dark"] {
-  --background: oklch(27.39% 0.005 286.03);
+  --background: oklch(27% 0 286);
   --foreground: oklch(100% 0 0);
-  --accent: oklch(75.76% 0.159 55.93);
-  --focus-color: oklch(75.76% 0.159 55.93);
-  --card-bg: oklch(14.08% 0.004 285.82);
-  --message-bg: oklch(21.03% 0.006 285.89);
-  --shadow: oklch(14.52% 0.002 286.13 / 20%) 0px 7px 29px 0px;
-  --input-bg: oklch(27.39% 0.005 286.03);
+  --accent: oklch(75% 0.15 55);
+  --focus-color: oklch(75% 0.15 55);
+  --card-bg: oklch(14% 0 285);
+  --message-bg: oklch(21% 0 285);
+  --shadow: oklch(14% 0 286);
+  --input-bg: oklch(27% 0 286);
   --button-text: oklch(100% 0 0);
-  --disabled: oklch(21.03% 0.006 285.89);
+  --disabled: oklch(21% 0 285);
+  --error: oklch(from var(--accent) l c 15);
 }
 
 * {

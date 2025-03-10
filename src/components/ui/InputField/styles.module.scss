@@ -5,33 +5,33 @@
 .input {
   font-size: 2rem;
   width: 100%;
-  padding: 10px 10px 10px 40px;
-  border: 1px solid;
+  padding: 10px;
+  border: 1px solid currentColor;
   border-radius: 5px;
   background-color: var(--input-bg);
   font-family: inherit;
 
-  &:focus {
-    outline: 2px solid var(--focus-color);
-    border-color: transparent;
+  &__label {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--foreground);
+    margin-block-end: 0.5rem;
   }
 
-  &__icon_container {
+  &__button_container {
     position: relative;
     display: flex;
     align-items: center;
   }
 
-  &__icon {
-    position: absolute;
-    left: 10px;
-    width: 20px;
+  &_error {
+    border-color: var(--error);
   }
 
   &__error {
-    margin-block-start: 1rem;
+    margin-block-start: 0.5rem;
     font-size: 1.3rem;
-    color: oklch(from var(--accent) l c 15);
+    color: var(--error);
   }
 
   &__visibilityButton {
@@ -50,6 +50,11 @@
       background: none;
       opacity: 0.8;
     }
+  }
+
+  &:focus {
+    outline: 2px solid var(--focus-color);
+    border-color: transparent;
   }
 
   @media screen and (max-width: 768px) {
