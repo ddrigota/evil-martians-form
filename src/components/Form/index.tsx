@@ -21,7 +21,8 @@ const Form = ({ title, subtitle }: IFormProps) => {
     handleSubmit,
     setError,
     setFocus,
-    formState: { errors, isValid, isSubmitting },
+    clearErrors,
+    formState: { errors, isValid, isSubmitting, isSubmitSuccessful },
   } = useForm<TLoginData>({
     mode: "onChange",
     delayError: 1000,
@@ -35,19 +36,35 @@ const Form = ({ title, subtitle }: IFormProps) => {
   }, [setFocus]);
 
   const onSubmit: SubmitHandler<TLoginData> = async data => {
+    clearErrors();
+
     const result: MockResponse = await handleMockPOST(data);
     if (result.status === "ok") {
       router.push("/success");
     } else {
-      setError(
-        result.message?.includes("Email") ? "email" : "password",
-        {
+      if (result.errors) {
+        Object.entries(result.errors).forEach(([field, message]) => {
+          setError(field as keyof TLoginData, {
+            type: "server",
+            message,
+          });
+        });
+
+        const firstErrorField = Object.keys(result.errors)[0] as keyof TLoginData;
+        setFocus(firstErrorField);
+      } else if (result.message) {
+        const fieldName = result.message.includes("Email") ? "email" : "password";
+        setError(fieldName, {
+          type: "server",
           message: result.message,
-        },
-        { shouldFocus: true }
-      );
+        }, { shouldFocus: true });
+      }
     }
   };
+
+  const hasServerErrors = Object.keys(errors).some(
+    key => errors[key as keyof TLoginData]?.type === "server"
+  );
 
   return (
     <section
@@ -82,11 +99,11 @@ const Form = ({ title, subtitle }: IFormProps) => {
           required
         />
         <Button
-          disabled={!isValid || isSubmitting}
+          disabled={!isValid || isSubmitting || hasServerErrors || isSubmitSuccessful}
           type="submit"
           className={styles.button__type_login}
           aria-busy={isSubmitting}>
-          {isSubmitting ? "Logging in..." : "Login"}
+          {isSubmitting || isSubmitSuccessful ? "Logging in..." : "Login"}
         </Button>
       </form>
     </section>
