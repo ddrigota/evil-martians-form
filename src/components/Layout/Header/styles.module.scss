@@ -26,6 +26,18 @@
   &__title {
     font-size: clamp(1.2rem, 2.5vw, 2rem);
     font-weight: bold;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 6px;
+      border-radius: var(--radius);
+    }
   }
 
   &__description {

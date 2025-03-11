@@ -9,8 +9,8 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.header__container}>
         <p className={styles.header__description}>For EvilMartians</p>
-        <Link href="/">
-          <h1 className={styles.header__title}>Best Form Ever</h1>
+        <Link href="/" className={styles.header__title}>
+          Best Form Ever
         </Link>
         <ThemePicker className={styles.header__themePicker} />
       </div>
