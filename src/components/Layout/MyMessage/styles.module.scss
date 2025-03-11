@@ -1,10 +1,11 @@
 .myMessage {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   gap: 6px;
   padding: 20px 10px;
-  width: 100%;
   background: var(--secondary);
   border-inline-start: 1px solid var(--primary);
   font-size: 1.2rem;
