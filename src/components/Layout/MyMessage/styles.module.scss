@@ -1,8 +1,13 @@
 .myMessage {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   gap: 16px;
   padding: 40px 20px;
+=======
+  gap: 6px;
+  padding: 20px 10px;
+>>>>>>> dev
   width: 100%;
   background: var(--secondary);
   border-inline-start: 1px solid var(--primary);
@@ -13,24 +18,36 @@
   @media (max-width: 768px) {
     border-inline-start: none;
     border-block-start: 1px solid var(--primary);
+<<<<<<< HEAD
     padding: 30px 16px;
+=======
+>>>>>>> dev
   }
 
   &__heading {
     font-weight: 600;
     color: var(--primary);
     font-size: 1.8rem;
+<<<<<<< HEAD
+=======
+    margin-bottom: 10px;
+>>>>>>> dev
   }
 
   &__subheading {
     font-weight: 600;
     color: var(--primary);
     font-size: 1.4rem;
+<<<<<<< HEAD
+=======
+    margin-top: 8px;
+>>>>>>> dev
   }
 
   &__list {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     gap: 8px;
     list-style: none;
     padding-left: 8px;
@@ -45,5 +62,10 @@
 
   &__listMarker {
     color: var(--primary);
+=======
+    gap: 4px;
+    margin: 0;
+    list-style: none;
+>>>>>>> dev
   }
 }
