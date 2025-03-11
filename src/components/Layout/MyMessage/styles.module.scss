@@ -1,8 +1,8 @@
 .myMessage {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 40px 20px;
+  gap: 6px;
+  padding: 20px 10px;
   width: 100%;
   background: var(--secondary);
   border-inline-start: 1px solid var(--primary);
@@ -13,37 +13,27 @@
   @media (max-width: 768px) {
     border-inline-start: none;
     border-block-start: 1px solid var(--primary);
-    padding: 30px 16px;
   }
 
   &__heading {
     font-weight: 600;
     color: var(--primary);
     font-size: 1.8rem;
+    margin-bottom: 10px;
   }
 
   &__subheading {
     font-weight: 600;
     color: var(--primary);
     font-size: 1.4rem;
+    margin-top: 8px;
   }
 
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    list-style: none;
-    padding-left: 8px;
+    gap: 4px;
     margin: 0;
-  }
-
-  &__listItem {
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-  }
-
-  &__listMarker {
-    color: var(--primary);
+    list-style: none;
   }
 }
