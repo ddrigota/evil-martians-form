@@ -7,6 +7,7 @@
   &__heading {
     font-size: 2rem;
     font-weight: 700;
+    color: var(--foreground);
   }
 
   &__linksContainer {
@@ -21,30 +22,36 @@
     justify-content: center;
     text-align: center;
     cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.2s;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
     font-size: 1.5rem;
     min-width: 120px;
     padding: 10px;
     border: none;
-    background: var(--accent);
-    color: var(--button-text);
-    cursor: pointer;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-weight: 500;
+    box-shadow: none;
+    position: relative;
 
     &:focus {
       outline: none;
     }
+
     &:focus-visible {
-      outline: 2px solid var(--focus-color);
+      outline: 2px solid var(--focus);
       outline-offset: 2px;
     }
 
-    &:active {
-      transform: scale(0.95);
+    &:hover {
+      opacity: 0.9;
+      background: oklch(from var(--primary) calc(l + 0.1) c h);
+      box-shadow: 0 2px 4px oklch(0 0 0 / 0.1);
     }
 
-    &:hover {
-      background: oklch(from var(--accent) calc(l + 0.05) c h / 0.8);
+    &:active {
+      transform: translateY(1px);
+      box-shadow: none;
     }
   }
 }

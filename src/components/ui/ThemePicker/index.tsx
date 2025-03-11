@@ -30,15 +30,15 @@ const ThemeOptionItem = forwardRef<HTMLButtonElement, ThemeOptionProps>(({
 }, ref) => (
   <button
     ref={ref}
-    className={`${styles.themeOption} ${isSelected ? styles.selected : ''}`}
+    className={`${styles.theme_picker__option} ${isSelected ? styles.theme_picker__option_selected : ''}`}
     onClick={onClick}
     onKeyDown={onKeyDown}
     aria-selected={isSelected}
     role="option"
     id={`theme-option-${value}`}
     tabIndex={tabIndex}>
-    <span className={styles.themeOptionIcon}>{icon}</span>
-    <span className={styles.themeOptionLabel}>{label}</span>
+    <span className={styles.theme_picker__option_icon}>{icon}</span>
+    <span className={styles.theme_picker__option_label}>{label}</span>
   </button>
 ));
 
@@ -85,6 +85,12 @@ export function ThemePicker({ className }: ThemePickerProps) {
     };
   }, []);
 
+  const themeOptions = useMemo(() => [
+    { value: 'light' as const, label: 'Light', icon: <Sun /> },
+    { value: 'dark' as const, label: 'Dark', icon: <Moon /> },
+    { value: 'system' as const, label: 'System', icon: <Monitor /> }
+  ], []);
+
   useEffect(() => {
     if (isOpen) {
       setWasOpen(true);
@@ -100,7 +106,7 @@ export function ThemePicker({ className }: ThemePickerProps) {
     } else if (!isOpen && wasOpen) {
       toggleButtonRef.current?.focus();
     }
-  }, [isOpen, theme, wasOpen]);
+  }, [isOpen, theme, wasOpen, themeOptions]);
 
   useEffect(() => {
     if (announcement) {
@@ -121,7 +127,7 @@ export function ThemePicker({ className }: ThemePickerProps) {
 
     const themeName = themeOptions.find(option => option.value === newTheme)?.label || newTheme;
     setAnnouncement(`Theme changed to ${themeName}`);
-  }, [setTheme]);
+  }, [setTheme, themeOptions]);
 
   const handleDropdownKeyDown = (e: ReactKeyboardEvent<HTMLButtonElement>) => {
     if (!isOpen) {
@@ -171,27 +177,23 @@ export function ThemePicker({ className }: ThemePickerProps) {
 
     switch (theme) {
       case 'light':
-        return <Sun className={styles.buttonIcon} />;
+        return <Sun className={styles.theme_picker__current_icon} />;
       case 'dark':
-        return <Moon className={styles.buttonIcon} />;
+        return <Moon className={styles.theme_picker__current_icon} />;
       default:
-        return <Monitor className={styles.buttonIcon} />;
+        return <Monitor className={styles.theme_picker__current_icon} />;
     }
   };
 
-  const themeOptions = useMemo(() => [
-    { value: 'light' as const, label: 'Light', icon: <Sun /> },
-    { value: 'dark' as const, label: 'Dark', icon: <Moon /> },
-    { value: 'system' as const, label: 'System', icon: <Monitor /> }
-  ], []);
+
 
   return (
-    <div className={`${styles.wrapper} ${className}`} ref={dropdownRef}>
+    <div className={`${styles.theme_picker} ${className}`} ref={dropdownRef}>
       {mounted ? (
         <>
           <Button
             ref={toggleButtonRef}
-            className={styles.themeToggle}
+            className={styles.theme_picker__toggle}
             variant="icon"
             onClick={toggleDropdown}
             onKeyDown={handleDropdownKeyDown}
@@ -199,17 +201,17 @@ export function ThemePicker({ className }: ThemePickerProps) {
             aria-expanded={isOpen}
             aria-controls={isOpen ? "theme-options-listbox" : undefined}
             aria-label="Select theme">
-            <span className={styles.currentTheme}>
+            <span className={styles.theme_picker__current}>
               {getCurrentThemeIcon()}
-              <span className={styles.currentThemeLabel}>Theme</span>
+              <span className={styles.theme_picker__current_label}>Theme</span>
             </span>
-            <ChevronDown className={`${styles.chevron} ${isOpen ? styles.chevronUp : ''}`} />
+            <ChevronDown className={`${styles.theme_picker__chevron} ${isOpen ? styles.theme_picker__chevron_up : ''}`} />
           </Button>
 
           <AnimatePresence>
             {isOpen && (
               <motion.div
-                className={styles.dropdown}
+                className={styles.theme_picker__dropdown}
                 role="listbox"
                 id="theme-options-listbox"
                 aria-labelledby="theme-selector"
@@ -239,13 +241,13 @@ export function ThemePicker({ className }: ThemePickerProps) {
 
           <div
             aria-live="polite"
-            className={styles.visuallyHidden}
+            className={styles.theme_picker__visually_hidden}
             role="status">
             {announcement}
           </div>
         </>
       ) : (
-        <div className={styles.placeholder} />
+        <div className={styles.theme_picker__placeholder} />
       )}
     </div>
   );

@@ -30,7 +30,13 @@
   &__type {
     &_login {
       margin-block-start: 1rem;
-      color: var(--button-text);
+      color: var(--primary-foreground);
+      transition: all 0.2s ease-in-out;
+
+      &:hover:not(:disabled) {
+        opacity: 0.9;
+        box-shadow: 0 2px 4px oklch(0 0 0 / 0.1);
+      }
     }
   }
 }
