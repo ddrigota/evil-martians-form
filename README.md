@@ -1,12 +1,8 @@
-# Удобная и красивая форма
+# An example of a well-structured and accessible login form
 
-Спасибо за отличную возможность поучаствовать в отборе!
-Собрал небольшую форму аутентификации по логину и паролю на NextJS и TypeScript.
-Очень надеюсь на обратную связь
+## Tech
 
-## Технологии
-
-- **Валидацияя**: `react-hook-form` и `zod`
-- **Темы**: `next-themes`, просто самый быстрый способ реализации
-- **Иконки**: `lucide-react`
-- **Остальное руками**
+- **Validation**: `react-hook-form` и `zod`
+- **Theme**: `next-themes`, просто самый быстрый способ реализации
+- **Icons**: `lucide-react`
+- **Everything else done by hand**
